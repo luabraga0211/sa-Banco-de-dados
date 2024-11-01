@@ -15,31 +15,31 @@ server.register(cors, {
 // ENDPOINTS (CRUD):
 
 // CREATE
-server.post('/loja', async (request, reply) => {
+server.post('/Funcionarios', async (request, reply) => {
     const body = request.body;
-    await databasePostgres.createLoja(body);
+    await databasePostgres.createFuncionarios(body);
     return reply.status(201).send();
 })
 
 // READE
-server.get('/loja', async () => {
-    const loja = await databasePostgres.listLoja();
-    return loja;
+server.get('/Funcionarios', async () => {
+    const Funcionarios = await databasePostgres.listFuncionarios();
+    return Funcionarios;
 });
 
 // UPDATE
-server.put('/loja/:id', async (request, reply) => {
-    const lojaID = request.params.id;
+server.put('/Funcionarios/:matricula', async (request, reply) => {
+    const FuncionariosID = request.params.matricula;
     const body = request.body;
-    await databasePostgres.updateLoja(lojaID, body);
+    await databasePostgres.updateFuncionarios(FuncionariosID, body);
 
     return reply.status(204).send();
 })
 
 // DELETE
-server.delete('/loja/:id', async (request, reply) => {
-    const lojaID = request.params.id;
-    await databasePostgres.deleteLoja(lojaID);
+server.delete('/Funcionarios/:matricula', async (request, reply) => {
+    const FuncionariosID = request.params.matricula;
+    await databasePostgres.deleteFuncionarios(FuncionariosID);
 
     return reply.status(204).send();
 })

@@ -2,37 +2,34 @@ import { randomUUID } from "crypto";
 import { sql } from './db.js';
 
 export class DatabasePostgres { 
-  async listLoja() {
-    const loja = await sql`select * from loja`;
-    return loja;
+  async listFuncionarios() {
+    const Funcionarios = await sql`select * from Funcionarios`;
+    return Funcionarios;
   }
 
-  async createLoja(loja) {
-    const id = randomUUID();
-    console.log('id', id);
-    const name = loja.name;
-    const local = loja.local;
-    const proprietario = loja.proprietario;
+  async createFuncionarios(Funcionarios) {
+    const matricula = randomUUID();
+    console.log('matricula', matricula);
+    const name = Funcionarios.name;
+    const senha = Funcionarios.senha;
     
-    await sql`insert into loja (id, name, local, proprietario)
-    values (${id}, ${name}, ${local}, ${proprietario})`
+    await sql`insert into Funcionarios (matricula, name, senha)
+    values (${matricula}, ${name}, ${senha})`
   }
 
-  async updateLoja(id, loja) {
-    const name = loja.name;
-    const local = loja.local;
-    const proprietario = loja.proprietario;
+  async updateFuncionarios(matricula, Funcionarios) {
+    const name = Funcionarios.name;
+    const senha = Funcionarios.senha;
 
-    await sql`update loja set 
+    await sql`update Funcionarios set 
         name = ${name},
-        local = ${local},
-        proprietario = ${proprietario}
-        where id = ${id}
+        senha = ${senha}
+        where matricula = ${matricula}
     `;
-  }
+}
 
-  async deleteLoja(id) {
-    await sql`delete from loja where id = ${id}`
+  async deleteFuncionarios(matricula) {
+    await sql`delete from Funcionarios where matricula = ${matricula}`
   }
 
 }
