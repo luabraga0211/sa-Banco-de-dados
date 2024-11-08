@@ -47,12 +47,12 @@ Content-Type: application/json
 
 ###
 
-PUT http://localhost:3333/entradasaida/
+PUT http://localhost:3333/entradasaida/6a8f353c-d172-4997-9601-069014308358
 Content-Type: application/json
 
 {
    "name": "Maria Fernanda",
-    "data": "12/10/2024"
+    "date": "12/10/2024"
 }
 
 ###
