@@ -47,10 +47,10 @@ export class DatabasePostgres {
     const idEntradaSaida = randomUUID();
     let data = EntradaSaida.date;
     data = new Date(data)
-
-    console.log('data', data);
+    console.log('id', idEntradaSaida);
 
     const name = EntradaSaida.name;
+    
     
     // COLOCA OS DADOS ESCOLHIDOS NA TABELA COMO AS VARIAVEIS SELECIONADAS
     await sql`INSERT INTO entradasaida (idEntradaSaida, data, name)
@@ -64,7 +64,7 @@ export class DatabasePostgres {
     // ATUALIZA OS DADOS QUE ESTAO SALVOS NAS VARIAVEIS PELOS NOVOS
     await sql`update entradasaida set 
         name = ${name},
-        data = ${data}
+        data = ${data},
         where idEntradaSaida = ${idEntradaSaida}
     `;
 }
