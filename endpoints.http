@@ -15,7 +15,7 @@ Content-Type: application/json
 
 ###
 
-PUT http://localhost:3333/Funcionarios/b94e5a0f-b71a-4dfd-a169-c574c3f41127
+PUT http://localhost:3333/Funcionarios/b23f8129-1483-4bac-9f4c-4ffcb5011506
 Content-Type: application/json
 
 {
@@ -25,4 +25,36 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:3333/Funcionarios/54cdaa96-af83-43e3-84f9-89f73f353d86
+DELETE http://localhost:3333/Funcionarios/b23f8129-1483-4bac-9f4c-4ffcb5011506
+
+###
+
+
+
+
+                // ENDPOINTS ENTRADA E SAIDA
+GET http://localhost:3333/entradasaida
+
+###
+
+POST http://localhost:3333/entradasaida
+Content-Type: application/json
+
+{
+    "name": "Maria Julia",
+    "date": "2006-12-10"
+}
+
+###
+
+PUT http://localhost:3333/entradasaida/
+Content-Type: application/json
+
+{
+   "name": "Maria Fernanda",
+    "data": "12/10/2024"
+}
+
+###
+
+DELETE http://localhost:3333/entradasaida/b23f8129-1483-4bac-9f4c-4ffcb5011506

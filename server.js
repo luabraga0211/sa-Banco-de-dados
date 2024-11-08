@@ -12,7 +12,7 @@ server.register(cors, {
     methods: ['GET', 'POST', 'PUT', 'DELETE']
 })
 
-// ENDPOINTS (CRUD):
+// ENDPOINTS (CRUD) DE FUNCIONARIOS:
 
 // CREATE
 server.post('/Funcionarios', async (request, reply) => {
@@ -44,6 +44,37 @@ server.delete('/Funcionarios/:matricula', async (request, reply) => {
     return reply.status(204).send();
 })
 
+// ENDPOINTS (CRUD) DE ENTRADA E SAIDA
+
+// CREATE
+server.post('/entradasaida', async (request, reply) => {
+    const body = request.body;
+    await databasePostgres.createEntradaSaida(body);
+    return reply.status(201).send();
+})
+
+// READE
+server.get('/entradasaida', async () => {
+    const EntradaSaida = await databasePostgres.listEntradaSaida();
+    return EntradaSaida;
+});
+
+// UPDATE
+server.put('/entradasaida/:idEntradaSaida', async (request, reply) => {
+    const EntradaSaidaID = request.params.idEntradaSaida;
+    const body = request.body;
+    await databasePostgres.updateEntradaSaida(EntradaSaidaID, body);
+
+    return reply.status(204).send();
+})
+
+// DELETE
+server.delete('/entradasaida/:idEntradaSaida', async (request, reply) => {
+    const EntradaSaidaID = request.params.idEntradaSaida;
+    await databasePostgres.deleteEntradaSaida(EntradaSaidaID);
+
+    return reply.status(204).send();
+})
 
 server.listen({
     port: 3333
