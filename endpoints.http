@@ -9,23 +9,23 @@ POST http://localhost:3333/Funcionarios
 Content-Type: application/json
 
 {
-    "name": "Julio lanches",
-    "senha": "São Paulo"
+    "name": " ",
+    "senha": " "
 }
 
 ###
 
-PUT http://localhost:3333/Funcionarios/b23f8129-1483-4bac-9f4c-4ffcb5011506
+PUT http://localhost:3333/Funcionarios/#
 Content-Type: application/json
 
 {
-   "name": "Julio laaaaaaaaahes",
-    "senha": "Saaaaaaaaaao"
+   "name": " ",
+    "senha": " "
 }
 
 ###
 
-DELETE http://localhost:3333/Funcionarios/b23f8129-1483-4bac-9f4c-4ffcb5011506
+DELETE http://localhost:3333/Funcionarios/#
 
 ###
 
@@ -41,21 +41,21 @@ POST http://localhost:3333/entradasaida
 Content-Type: application/json
 
 {
-    "name": "Maria Julia",
-    "date": "2006-12-10"
+    "name": " ",
+    "date": "yy-mm-dd"
 
 }
 
 ###
 
-PUT http://localhost:3333/entradasaida/6a8f353c-d172-4997-9601-069014308358
+PUT http://localhost:3333/entradasaida/#
 Content-Type: application/json
 
 {
-   "name": "Maria Fernanda",
-    "date": "12/10/2024"
+   "name": " ",
+    "date": "yy-mm-dd"
 }
 
 ###
 
-DELETE http://localhost:3333/entradasaida/b23f8129-1483-4bac-9f4c-4ffcb5011506
+DELETE http://localhost:3333/entradasaida/#
