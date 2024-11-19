@@ -25,7 +25,7 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:3333/Funcionarios/#
+DELETE http://localhost:3333/Funcionarios/d87d2f02-aa5c-41d4-9cca-b901000d8620
 
 ###
 
@@ -42,7 +42,7 @@ Content-Type: application/json
 
 {
     "name": " ",
-    "date": "yy-mm-dd"
+    "date": "2016-10-22"
 
 }
 
