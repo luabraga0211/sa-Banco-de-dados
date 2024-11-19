@@ -45,12 +45,11 @@ export class DatabasePostgres {
   // CRIA UMA NOVA ENTRADA DE ENTRADA E SAIDA COM CREATE
   async createEntradaSaida(EntradaSaida) {
     const idEntradaSaida = randomUUID();
-    let data = EntradaSaida.date;
-    data = new Date(data)
+    const { date, name } = EntradaSaida;    
     console.log('id', idEntradaSaida);
 
-    const name = EntradaSaida.name;
-    
+    const data = new Date(date);
+
     
     // COLOCA OS DADOS ESCOLHIDOS NA TABELA COMO AS VARIAVEIS SELECIONADAS
     await sql`INSERT INTO entradasaida (idEntradaSaida, data, name)
@@ -64,7 +63,7 @@ export class DatabasePostgres {
     // ATUALIZA OS DADOS QUE ESTAO SALVOS NAS VARIAVEIS PELOS NOVOS
     await sql`update entradasaida set 
         name = ${name},
-        data = ${data},
+        data = ${data}
         where idEntradaSaida = ${idEntradaSaida}
     `;
 }
