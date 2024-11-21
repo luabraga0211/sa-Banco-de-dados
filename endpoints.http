@@ -42,7 +42,6 @@ Content-Type: application/json
 
 {
     "name": " ",
-    "date": "2016-10-22T00:00:00"
 
 }
 
@@ -53,7 +52,6 @@ Content-Type: application/json
 
 {
    "name": " ",
-    "date": "2012-10-01T00:00:00"
 }
 
 ###

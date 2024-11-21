@@ -17,6 +17,10 @@ export class DatabasePostgres {
     
     await sql`insert into Funcionarios (matricula, name, senha)
     values (${matricula}, ${name}, ${senha})`
+
+// Registrar a entrada e saída após criar o funcionário
+ await this.createEntradaSaida({ name, date: new Date() });
+
   }
 
   async updateFuncionarios(matricula, Funcionarios) {
@@ -45,27 +49,23 @@ export class DatabasePostgres {
   // CRIA UMA NOVA ENTRADA DE ENTRADA E SAIDA COM CREATE
   async createEntradaSaida(EntradaSaida) {
     const idEntradaSaida = randomUUID();
-    const { date, name } = EntradaSaida;   
+    const { name, date = new Date() } = EntradaSaida;   
     console.log('id', idEntradaSaida);
-    const data = new Date(date);
-    console.log( data );
-    
-  
-
+    console.log('data', date);
     
     // COLOCA OS DADOS ESCOLHIDOS NA TABELA COMO AS VARIAVEIS SELECIONADAS
     await sql`INSERT INTO entradasaida (idEntradaSaida, data, name)
-    values (${idEntradaSaida}, ${data}, ${name})`
+    values (${idEntradaSaida}, ${date}, ${name})`
   }
 
     // FUNÇÃO DE UPDATE DE ENTRADA E SAIDA DO CODIGO
   async updateEntradaSaida(idEntradaSaida, EntradaSaida) {
     const name = EntradaSaida.name;
-    const data = EntradaSaida.date;
+    const date = EntradaSaida.date;
     // ATUALIZA OS DADOS QUE ESTAO SALVOS NAS VARIAVEIS PELOS NOVOS
     await sql`update entradasaida set 
         name = ${name},
-        data = ${data}
+        data = ${date}
         where idEntradaSaida = ${idEntradaSaida}
     `;
 }

@@ -1,27 +1,27 @@
-import { sql } from './db.js'
+import { sql } from './db.js';
 
+// Criação da tabela EntradaSaida
 sql`
 CREATE TABLE EntradaSaida (
-  idEntradaSaida text PRIMARY KEY,
-  data DATE,
+  idEntradaSaida UUID PRIMARY KEY,
+  data TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   name VARCHAR(255)
-);
-
-
+)
 `.then(() => {
-  console.log('tabela criada');
-})
+  console.log('Tabela EntradaSaida criada');
+}).catch(err => {
+  console.error('Erro ao criar tabela EntradaSaida:', err);
+});
 
+// Criação da tabela Funcionarios
 sql`
 CREATE TABLE Funcionarios (
-  matricula text PRIMARY KEY,
+  matricula UUID PRIMARY KEY,
   name VARCHAR(255),
   senha VARCHAR(255)
-);
-
-
+)
 `.then(() => {
-  console.log('tabela criada');
-})
-
-
+  console.log('Tabela Funcionarios criada');
+}).catch(err => {
+  console.error('Erro ao criar tabela Funcionarios:', err);
+});
