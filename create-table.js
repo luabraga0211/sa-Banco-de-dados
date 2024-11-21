@@ -5,7 +5,8 @@ sql`
 CREATE TABLE EntradaSaida (
   idEntradaSaida UUID PRIMARY KEY,
   data TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  name VARCHAR(255)
+  name VARCHAR(255),
+  tipo VARCHAR(10) CHECK (tipo IN ('entrada', 'saida'))
 )
 `.then(() => {
   console.log('Tabela EntradaSaida criada');

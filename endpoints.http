@@ -4,23 +4,21 @@
 GET http://localhost:3333/Funcionarios
 
 ###
-
 POST http://localhost:3333/Funcionarios
 Content-Type: application/json
 
 {
-    "name": " ",
-    "senha": " "
+    "name": "JOAO",
+    "senha": "senha123"
 }
 
 ###
-
-PUT http://localhost:3333/Funcionarios/#
+PUT http://localhost:3333/Funcionarios/d87d2f02-aa5c-41d4-9cca-b901000d8620
 Content-Type: application/json
 
 {
-   "name": " ",
-    "senha": " "
+   "name": "JOAO ATUALIZADO",
+   "senha": "novaSenha123"
 }
 
 ###
@@ -41,19 +39,19 @@ POST http://localhost:3333/entradasaida
 Content-Type: application/json
 
 {
-    "name": " ",
-
+    "name": "JOAO",
+    "tipo": "entrada"
 }
 
 ###
-
 PUT http://localhost:3333/entradasaida/d98fd6f4-8210-4291-924a-d1d83a7f5bba
 Content-Type: application/json
 
 {
-   "name": " ",
+   "name": "JOAO ATUALIZADO",
+   "tipo": "saida"
 }
 
 ###
 
-DELETE http://localhost:3333/entradasaida/#
+DELETE http://localhost:3333/entradasaida/d98fd6f4-8210-4291-924a-d1d83a7f5bba

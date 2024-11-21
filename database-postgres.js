@@ -5,73 +5,65 @@ export class DatabasePostgres {
 
   // CRUD DOS FUNCIONARIOS
   async listFuncionarios() {
-    const Funcionarios = await sql`select * from Funcionarios`;
-    return Funcionarios;
+    const funcionarios = await sql`SELECT * FROM Funcionarios`;
+    return funcionarios;
   }
 
-  async createFuncionarios(Funcionarios) {
+  async createFuncionarios(funcionario) {
     const matricula = randomUUID();
-    console.log('matricula', matricula);
-    const name = Funcionarios.name;
-    const senha = Funcionarios.senha;
-    
-    await sql`insert into Funcionarios (matricula, name, senha)
-    values (${matricula}, ${name}, ${senha})`
+    const { name, senha } = funcionario;
 
-// Registrar a entrada e saída após criar o funcionário
- await this.createEntradaSaida({ name, date: new Date() });
+    await sql`INSERT INTO Funcionarios (matricula, name, senha)
+    VALUES (${matricula}, ${name}, ${senha})`;
 
+    // Registrar a entrada ao criar o funcionário
+    await this.createEntradaSaida({ name, tipo: 'entrada' });
   }
 
-  async updateFuncionarios(matricula, Funcionarios) {
-    const name = Funcionarios.name;
-    const senha = Funcionarios.senha;
+  async updateFuncionarios(matricula, funcionario) {
+    const { name, senha } = funcionario;
 
-    await sql`update Funcionarios set 
+    await sql`UPDATE Funcionarios SET 
         name = ${name},
         senha = ${senha}
-        where matricula = ${matricula}
+        WHERE matricula = ${matricula}
     `;
-}
+  }
 
   async deleteFuncionarios(matricula) {
-    await sql`delete from Funcionarios where matricula = ${matricula}`
+    await sql`DELETE FROM Funcionarios WHERE matricula = ${matricula}`;
   }
 
   // CRUD DE ENTRADA E SAIDA
-
-  // SELECIONA TODOS OS VALORES DA TABELA PARA RETORNAREM NA TELA 
-
   async listEntradaSaida() {
-    const EntradaSaida = await sql`select * from entradasaida`;
-    return EntradaSaida;
+    const entradaSaida = await sql`SELECT * FROM EntradaSaida`;
+    return entradaSaida;
   }
-  // CRIA UMA NOVA ENTRADA DE ENTRADA E SAIDA COM CREATE
-  async createEntradaSaida(EntradaSaida) {
+
+  async createEntradaSaida(entradaSaida) {
     const idEntradaSaida = randomUUID();
-    const { name, date = new Date() } = EntradaSaida;   
-    console.log('id', idEntradaSaida);
-    console.log('data', date);
-    
-    // COLOCA OS DADOS ESCOLHIDOS NA TABELA COMO AS VARIAVEIS SELECIONADAS
-    await sql`INSERT INTO entradasaida (idEntradaSaida, data, name)
-    values (${idEntradaSaida}, ${date}, ${name})`
+    const { name, tipo } = entradaSaida;
+
+    await sql`INSERT INTO EntradaSaida (idEntradaSaida, data, name, tipo)
+    VALUES (${idEntradaSaida}, DEFAULT, ${name}, ${tipo})`;
   }
 
-    // FUNÇÃO DE UPDATE DE ENTRADA E SAIDA DO CODIGO
-  async updateEntradaSaida(idEntradaSaida, EntradaSaida) {
-    const name = EntradaSaida.name;
-    const date = EntradaSaida.date;
-    // ATUALIZA OS DADOS QUE ESTAO SALVOS NAS VARIAVEIS PELOS NOVOS
-    await sql`update entradasaida set 
+  async updateEntradaSaida(idEntradaSaida, entradaSaida) {
+    const { name, tipo } = entradaSaida;
+
+    await sql`UPDATE EntradaSaida SET 
         name = ${name},
-        data = ${date}
-        where idEntradaSaida = ${idEntradaSaida}
+        tipo = ${tipo}
+        WHERE idEntradaSaida = ${idEntradaSaida}
     `;
-}
-  // FUNÇÃO DE DELETE DE ENTRADA E SAIDA DO CODIGO
-  async deleteEntradaSaida(idEntradaSaida) {
-    await sql`delete from entradasaida where idEntradaSaida = ${idEntradaSaida}`
   }
 
+  async deleteEntradaSaida(idEntradaSaida) {
+    await sql`DELETE FROM EntradaSaida WHERE idEntradaSaida = ${idEntradaSaida}`;
+  }
+
+  async getEntradaSaidaByFuncionario(name) {
+    const result = await sql`SELECT * FROM EntradaSaida WHERE name = ${name}`;
+    return result;
+  }
 }
