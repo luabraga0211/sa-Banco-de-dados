@@ -45,10 +45,12 @@ export class DatabasePostgres {
   // CRIA UMA NOVA ENTRADA DE ENTRADA E SAIDA COM CREATE
   async createEntradaSaida(EntradaSaida) {
     const idEntradaSaida = randomUUID();
-    const { date, name } = EntradaSaida;    
+    const { date, name } = EntradaSaida;   
     console.log('id', idEntradaSaida);
-
     const data = new Date(date);
+    console.log( data );
+    
+  
 
     
     // COLOCA OS DADOS ESCOLHIDOS NA TABELA COMO AS VARIAVEIS SELECIONADAS

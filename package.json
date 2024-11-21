@@ -18,7 +18,6 @@
     "postgres": "^3.4.4"
   },
   "description": "Para rodar o projeto, siga os passos abaixo:",
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/luabraga0211/api-loja.git"
