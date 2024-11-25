@@ -1,10 +1,10 @@
 #PARA UTILIZAR ESSES ENDPOINTS É NECESSÁRIO INSTALAR A EXTENSÃO DO VSCODE "REST CLIENT"
 ###
 
-GET http://localhost:3333/Funcionarios
+GET http://localhost:3333/funcionarios
 
 ###
-POST http://localhost:3333/Funcionarios
+POST http://localhost:3333/funcionarios
 Content-Type: application/json
 
 {
@@ -13,7 +13,7 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:3333/Funcionarios/d87d2f02-aa5c-41d4-9cca-b901000d8620
+PUT http://localhost:3333/funcionarios/d87d2f02-aa5c-41d4-9cca-b901000d8620
 Content-Type: application/json
 
 {
@@ -23,7 +23,7 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:3333/Funcionarios/d87d2f02-aa5c-41d4-9cca-b901000d8620
+DELETE http://localhost:3333/funcionarios/d87d2f02-aa5c-41d4-9cca-b901000d8620
 
 ###
 
