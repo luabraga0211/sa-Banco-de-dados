@@ -34,6 +34,8 @@ export class DatabasePostgres {
     await sql`DELETE FROM Funcionarios WHERE matricula = ${matricula}`;
   }
 
+  
+
   // CRUD DE ENTRADA E SAIDA
   async listEntradaSaida() {
     const entradaSaida = await sql`SELECT * FROM EntradaSaida`;
