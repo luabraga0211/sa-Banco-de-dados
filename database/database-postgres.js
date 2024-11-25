@@ -34,7 +34,11 @@ export class DatabasePostgres {
     await sql`DELETE FROM Funcionarios WHERE matricula = ${matricula}`;
   }
 
-  
+
+  async findFuncionarioByNameAndSenha(name, senha) {
+    const result = await sql`SELECT * FROM Funcionarios WHERE name = ${name} AND senha = ${senha}`;
+    return result.length > 0 ? result[0] : null; 
+  }
 
   // CRUD DE ENTRADA E SAIDA
   async listEntradaSaida() {
