@@ -14,7 +14,7 @@ server.register(cors, {
 // ENDPOINTS (CRUD) DE FUNCIONARIOS:
 
 // CREATE
-server.post('/Funcionarios', async (request, reply) => {
+server.post('/funcionarios', async (request, reply) => {
     try {
         const body = request.body;
         await databasePostgres.createFuncionarios(body);
@@ -25,7 +25,7 @@ server.post('/Funcionarios', async (request, reply) => {
 });
 
 // READ
-server.get('/Funcionarios', async () => {
+server.get('/funcionarios', async () => {
     try {
         const funcionarios = await databasePostgres.listFuncionarios();
         return funcionarios;
@@ -35,7 +35,7 @@ server.get('/Funcionarios', async () => {
 });
 
 // UPDATE
-server.put('/Funcionarios/:matricula', async (request, reply) => {
+server.put('/funcionarios/:matricula', async (request, reply) => {
     try {
         const funcionariosID = request.params.matricula;
         const body = request.body;
@@ -47,7 +47,7 @@ server.put('/Funcionarios/:matricula', async (request, reply) => {
 });
 
 // DELETE
-server.delete('/Funcionarios/:matricula', async (request, reply) => {
+server.delete('/funcionarios/:matricula', async (request, reply) => {
     try {
         const funcionariosID = request.params.matricula;
         await databasePostgres.deleteFuncionarios(funcionariosID);
@@ -57,7 +57,7 @@ server.delete('/Funcionarios/:matricula', async (request, reply) => {
     }
 });
 
-// ENDPOINTS (CRUD) DE ENTRADA E SAIDA
+// endpoints (CRUD) DE ENTRADA E SAIDA
 
 // CREATE
 server.post('/entradasaida', async (request, reply) => {
