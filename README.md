@@ -6,7 +6,7 @@ Para rodar o projeto, siga os passos abaixo:
    - Crie um banco de dados e um usuário conforme descrito no arquivo `.env`.
 
 2. **Criação da Tabela**
-   - Utilize o arquivo `create-table.js` para criar a tabela no banco de dados.
+   - Utilize o arquivo `create-tables.js` para criar a tabela no banco de dados.
    - O arquivo pode ser executado através do seguinte comando:
 
      ```bash
