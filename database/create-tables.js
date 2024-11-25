@@ -1,4 +1,4 @@
-import { sql } from './db.js';
+import { sql } from '../config/db.js';
 
 // Criação da tabela EntradaSaida
 sql`
